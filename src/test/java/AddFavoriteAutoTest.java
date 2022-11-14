@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,6 +9,7 @@ public class AddFavoriteAutoTest extends BaseTest{
     SearchPage searchPage = new SearchPage(driver);
 
     @Test
+    @DisplayName("Добавление автомобиля в избранное в авторизованном аккаунте")
     public void addFavoriteAuto(){
         authPage.enterAccount("79853443468", "password");
 

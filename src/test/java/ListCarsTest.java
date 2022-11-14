@@ -1,4 +1,4 @@
-import org.junit.After;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +15,8 @@ public class ListCarsTest extends BaseTest{
     public void setUp() throws InterruptedException {
         filterPage.mySelect();
     }
-
     @Test
+    @DisplayName("Проверка резултатов поиска. Год авто не меньше 2007")
     public void checkingTheFilterOfTheYear(){
 
         List<WebElement> carNameFistPage = searchPage.getListCar();
@@ -29,6 +29,7 @@ public class ListCarsTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Проверка резултатов поиска. Нет проданных авто (отсутствует перечеркнутый текст)")
     public void noCrossedOutCars() {
         List<WebElement> carWithLine = searchPage.getListHeaderCarWithLine();
 
@@ -36,6 +37,7 @@ public class ListCarsTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Проверка резултатов поиска. У каждого объявления в списке есть пробег.")
     public void availabilityOfMileage() {
         List<WebElement> components = searchPage.getListCarComponents();
         for (WebElement webElement : components) {

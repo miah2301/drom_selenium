@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 
 import java.util.List;
@@ -21,41 +22,51 @@ public class FilterPage extends BasePage{
     private final By yearFrom = By.xpath("//button[text() = 'Год от']");
     private final By selectYearFrom = By.xpath("//div[@data-ftid = 'sales__filter_year-from']/div/div");
 
+    @Step("Поиск определенной марки авто")
     public void chooseCarBrand(String myBrand) throws InterruptedException {
         driver.findElement(brand).click();
         driver.findElement(brand).sendKeys(myBrand);
         Thread.sleep(1000);
     }
+    @Step("Выбор первого автомобиля из поиска")
     public void clickChooseCarBrand(){
         driver.findElement(firstResultBrand).click();
     }
 
+    @Step("Поиск определенной модели авто")
     public void chooseCarModal(String carModal) throws InterruptedException {
         driver.findElement(modal).click();
         driver.findElement(modal).sendKeys(carModal);
         Thread.sleep(1000);
     }
+
+    @Step("Выбор первой модели из поиска")
     public void clickChooseCarModal(){
         driver.findElement(firstResultModal).click();
     }
 
+    @Step("Выбор гибридного топлива")
     public void chooseCarFuel() {
         driver.findElement(fuel).click();
         driver.findElement(hybridFuel).click();
     }
 
+    @Step("Клик по чекбоксу -непроданные-")
     public void chooseUnsold() {
         driver.findElement(unsoldCheckbox).click();
     }
 
+    @Step("Клик на -расширенный поиск-")
     public void clickOnAdvancedSearch() {
         driver.findElement(advancedSearch).click();
     }
 
+    @Step("Ввод пробега")
     public void chooseMileageFrom(int mileage) {
         driver.findElement(mileageFrom).sendKeys(String.valueOf(mileage));
     }
 
+    @Step("Выбор -года от-")
     public void chooseYearFrom(int index) {
         driver.findElement(yearFrom).click();
 
@@ -63,10 +74,12 @@ public class FilterPage extends BasePage{
         elements.get(index).click();
     }
 
+    @Step("Клик по кнопке -Показать-")
     public void clickButtonShow() {
         driver.findElement(buttonShow).click();
     }
 
+    @Step("Фильтрация по заданным в ТЗ параметрам")
     public void mySelect() throws InterruptedException {
         chooseCarBrand("Toyota");
         clickChooseCarBrand();
